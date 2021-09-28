@@ -1,0 +1,1 @@
+00 12 * * * /usr/sbin/logrotate -d /etc/logrotate.d/apache2 >>/var/log/logrotate 2>&1

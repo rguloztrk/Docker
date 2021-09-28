@@ -1,0 +1,28 @@
+version: '3.9'
+services:
+    web:
+        restart: always
+        image: beyaz/php7
+        container_name: web
+        environment:
+            - TZ=Europe/Istanbul
+        build:
+            context: .
+            dockerfile: ./php/Dockerfile
+        ports:
+            - 18560:80
+        volumes:
+            - ./web:/var/www/html
+            - ./php/disable-functions.ini:/usr/local/etc/php/conf.d/disable-functions.ini:ro
+            - ./log/apache:/var/log/apache2
+    log:
+        restart: always
+        image: beyaz/log
+        container_name: log
+        environment:
+            - TZ=Europe/Istanbul
+        build:
+            context: .
+            dockerfile: ./apachelog/Dockerfile
+        volumes:
+            - ./log/apache:/var/log/apache:ro

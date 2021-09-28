@@ -23,6 +23,6 @@ services:
             - TZ=Europe/Istanbul
         build:
             context: .
-            dockerfile: ./apachelog/Dockerfile
+            dockerfile: ./apacheLogs/Dockerfile
         volumes:
             - ./log/apache:/var/log/apache:ro

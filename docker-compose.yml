@@ -13,7 +13,6 @@ services:
             - 18560:80
         volumes:
             - ./web:/var/www/html
-            - ./php/disable-functions.ini:/usr/local/etc/php/conf.d/disable-functions.ini:ro
             - ./log/apache:/var/log/apache2
     log:
         restart: always
